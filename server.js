@@ -29,9 +29,20 @@ express()
     const randomMsg = ["Hi, I'm a monkey that can talk", "Yes I think so too", "Not really", "Hoo hoo ahh ahh", '🙊',
     '🙈',
     '🙉'];
-    const message = { author: 'cat', text: randomMsg };
+    const message = { author: 'monkey', text: randomMsg };
     
     const randomTime = Math.floor(Math.random() * 3000);
+    setTimeout(() => {
+      res.status(200).json({ status: 200, message });
+    }, randomTime);
+  })
+
+  .get('/parrot-message', (req, res) => {
+    let parroted = req.query.repeatedText;
+    const message = { author: 'parrot', text: parroted };
+    
+    const randomTime = Math.floor(Math.random() * 3000);
+
     setTimeout(() => {
       res.status(200).json({ status: 200, message });
     }, randomTime);
