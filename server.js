@@ -24,6 +24,18 @@ express()
       res.status(200).json({ status: 200, message });
     }, randomTime);
   })
+
+  .get('/monkey-message', (req, res) => {
+    const randomMsg = ["Hi, I'm a monkey that can talk", "Yes I think so too", "Not really", "Hoo hoo ahh ahh", '🙊',
+    '🙈',
+    '🙉'];
+    const message = { author: 'cat', text: randomMsg };
+    
+    const randomTime = Math.floor(Math.random() * 3000);
+    setTimeout(() => {
+      res.status(200).json({ status: 200, message });
+    }, randomTime);
+  })
   // add new endpoints here ☝️
   // ---------------------------------
   // Nothing to modify below this line
